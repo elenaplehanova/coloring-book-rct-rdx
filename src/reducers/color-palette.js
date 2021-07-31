@@ -1,19 +1,22 @@
 const colors = [
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "blue",
-    "turquoise",
-    "purple",
-    "pink",
-    "deeppink",
+    "#eff1f2",
+    "#08bcad",
+    "#66a4d8",
+    "#205dc4",
+    "#6a3aa6",
+    "#b500b4",
+    "#e53ca4",
+    "#ed0a00",
+    "#e98c39",
+    "#ffe346",
+    "#9ec54c",
+    "#353c3e",
 ];
 
 const selectColorInPalette = (state, action) => {
     if (state === undefined) {
         return {
-            selectedColor: "blue",
+            selectedColor: "#08bcad",
             colors: colors,
         };
     }

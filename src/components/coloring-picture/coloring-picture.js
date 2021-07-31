@@ -11,7 +11,7 @@ import "./coloring-picture.css";
 const ColoringPicture = ({ picture, fillColors, onFill }) => {
     return (
         <div className="coloring-picture">
-            <svg key={picture.id} width="300px" height="300px">
+            <svg className="svg-picture" key={picture.id}>
                 {picture.paths.map((path, index) => {
                     return (
                         <path

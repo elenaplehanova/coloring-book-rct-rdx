@@ -10,20 +10,22 @@ import "./coloring-picture.css";
 
 const ColoringPicture = ({ picture, fillColors, onFill }) => {
     return (
-        <svg className="coloring-picture" key={picture.id} height="100vh" width="100vh">
-            {picture.paths.map((path, index) => {
-                return (
-                    <path
-                        key={path.id}
-                        d={path.d}
-                        strokeWidth="0"
-                        stroke="black"
-                        onClick={() => onFill(index)}
-                        fill={fillColors[index]}
-                    />
-                );
-            })}
-        </svg>
+        <div className="coloring-picture">
+            <svg key={picture.id} width="300px" height="300px">
+                {picture.paths.map((path, index) => {
+                    return (
+                        <path
+                            key={path.id}
+                            d={path.d}
+                            strokeWidth="0"
+                            stroke="black"
+                            onClick={() => onFill(index)}
+                            fill={fillColors[index]}
+                        />
+                    );
+                })}
+            </svg>
+        </div>
     );
 };
 

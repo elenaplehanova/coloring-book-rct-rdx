@@ -1,0 +1,7 @@
+.coloring-picture {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 150px;
+    transform: scale(2);
+}

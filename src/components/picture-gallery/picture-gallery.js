@@ -13,7 +13,7 @@ import _ from "lodash";
 const Picture = ({ picture }) => {
     return (
         <div className="hovereffect">
-            <svg height="18vw" width="18vw">
+            <svg className="svg-picture">
                 {picture.paths.map((path) => {
                     return (
                         <path
@@ -39,7 +39,7 @@ const Picture = ({ picture }) => {
 class PictureGallery extends Component {
     render() {
         const { pictures } = this.props;
-        const size = 4;
+        const size = 3;
         const picturesChunked = _.chunk(pictures, size);
         return (
             <div id="carouselColoringPictures" className="carousel slide" data-ride="carousel">
@@ -50,7 +50,7 @@ class PictureGallery extends Component {
                                 key={index}
                                 className={"carousel-item " + (index === 0 ? "active" : "")}
                             >
-                                <div className="d-flex justify-content-center">
+                                <div className="carousel-sheet">
                                     {picturesIn.map((picture) => {
                                         return (
                                             <div key={picture.id}>

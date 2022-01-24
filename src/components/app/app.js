@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "../header/header";
 import { HomePage, ColoringPage } from "../pages";
 
@@ -9,20 +9,14 @@ const App = () => {
     return (
         <main role="main" className="container-fluid">
             <Header />
-            <Switch>
-                <Route path="/" component={HomePage} exact />
+            <Routes>
+                <Route path="/" element={<HomePage />} exact />
+                <Route path="/coloring_page/:id" element={<ColoringPage />} />
                 <Route
-                    path="/coloring_page/:id"
-                    render={({ match }) => {
-                        const { id } = match.params;
-
-                        return <ColoringPage pictureId={id} />;
-                    }}
+                    path="*"
+                    element={<Navigate to="/" />}
                 />
-                <Route path="*">
-                    <Redirect to="/" />
-                </Route>
-            </Switch>
+            </Routes>
         </main>
     );
 };

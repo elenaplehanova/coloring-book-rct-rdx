@@ -1,18 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 import ColoringPicture from "../coloring-picture";
 import ColorPalette from "../color-palette";
+import { useParams } from "react-router-dom";
 
-class ColoringPage extends Component {
-    render() {
-        const { pictureId } = this.props;
 
-        return (
-            <div>
-                <ColorPalette />
-                <ColoringPicture pictureId={pictureId} />
-            </div>
-        );
-    }
+const ColoringPage = () => {
+    let { id } = useParams();
+
+    return (
+        <div>
+            <ColorPalette />
+            <ColoringPicture pictureId={id} />
+        </div>
+    );
+
 }
 
 export default ColoringPage;

@@ -1,3 +1,5 @@
+import { COLOR_SET_DEFAULT, COLOR_ADDED_TO_PATH } from "../types";
+
 const setDefaultColor = (length) => {
     const newFillColors = new Array(length).fill("white");
 
@@ -26,9 +28,9 @@ const updateColorPath = (state, action) => {
         };
     }
     switch (action.type) {
-        case "COLOR_SET_DEFAULT":
+        case COLOR_SET_DEFAULT:
             return setDefaultColor(action.payload);
-        case "COLOR_ADDED_TO_PATH":
+        case COLOR_ADDED_TO_PATH:
             return updateColor(state, action.payload);
         default:
             return state.colorPath;

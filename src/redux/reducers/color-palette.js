@@ -1,3 +1,5 @@
+import { COLOR_SELECTED_IN_PALETTE } from "../types";
+
 const colors = [
     "#eff1f2",
     "#08bcad",
@@ -21,7 +23,7 @@ const selectColorInPalette = (state, action) => {
         };
     }
     switch (action.type) {
-        case "COLOR_SELECTED_IN_PALETTE":
+        case COLOR_SELECTED_IN_PALETTE:
             return {
                 selectedColor: action.payload,
                 colors: colors,

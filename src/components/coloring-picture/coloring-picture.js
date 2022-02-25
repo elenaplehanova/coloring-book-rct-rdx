@@ -3,7 +3,9 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { withColoringBookService } from "../hoc";
 import { compose } from "../../utils";
-import { colorAddedToPath, fetchPicture } from "../../actions";
+import { fetchPicture } from "../../redux/actions/coloring-picture";
+import { colorAddedToPath } from "../../redux/actions/color-path";
+
 import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
 import "./coloring-picture.scss";

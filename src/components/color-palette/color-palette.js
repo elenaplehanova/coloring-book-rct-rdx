@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { colorSelectedInPalette } from "../../actions";
+import { colorSelectedInPalette } from "../../redux/actions/color-palette";
 
 import "./color-palette.scss";
 

@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { withColoringBookService } from "../hoc";
 import { compose } from "../../utils";
-import { fetchPictures } from "../../actions";
+import { fetchPictures } from "../../redux/actions/picture-list";
 import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
 import Picture from "../picture";

@@ -1,33 +1,35 @@
-const updatePictureList = (state, action) => {
+import { FETCH_PICTURE_REQUEST, FETCH_PICTURE_SUCCESS, FETCH_PICTURE_FAILURE } from "../types";
+
+const fetchColoringPicture = (state, action) => {
     if (state === undefined) {
         return {
-            pictures: [],
+            picture: null,
             loading: true,
             error: null,
         };
     }
     switch (action.type) {
-        case "FETCH_PICTURES_REQUEST":
+        case FETCH_PICTURE_REQUEST:
             return {
-                pictures: [],
+                picture: null,
                 loading: true,
                 error: null,
             };
-        case "FETCH_PICTURES_SUCCESS":
+        case FETCH_PICTURE_SUCCESS:
             return {
-                pictures: action.payload,
+                picture: action.payload,
                 loading: false,
                 error: null,
             };
-        case "FETCH_PICTURES_FAILURE":
+        case FETCH_PICTURE_FAILURE:
             return {
-                pictures: [],
+                picture: null,
                 loading: false,
                 error: action.payload,
             };
         default:
-            return state.pictureList;
+            return state.coloringPicture;
     }
 };
 
-export default updatePictureList;
+export default fetchColoringPicture;

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { colorSelectedInPalette } from "../../actions";
 
-import "./color-palette.css";
+import "./color-palette.scss";
 
 const ColorPalette = ({ selectedColor, colors, colorSelectedInPalette }) => {
     return (
@@ -15,12 +15,9 @@ const ColorPalette = ({ selectedColor, colors, colorSelectedInPalette }) => {
                         onClick={() => {
                             colorSelectedInPalette(color);
                         }}
-                    >
-                        <div
-                            className={`color-swatch ${activeClass}`}
-                            style={{ backgroundColor: color }}
-                        ></div>
-                    </div>
+                        className={`color-swatch ${activeClass}`}
+                        style={{ backgroundColor: color }}
+                    ></div>
                 );
             })}
         </div>

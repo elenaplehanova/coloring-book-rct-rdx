@@ -1,0 +1,30 @@
+@import "../../css/main.scss";
+
+@mixin resize($display, $column-count) {
+    $width: map-get($picture-widths, $display) * 1px;
+
+    grid-template-columns: repeat($column-count, $width);
+    grid-auto-rows: $width;
+
+    min-width: calc($width * $column-count);
+}
+
+$column-count: (
+    desktop: 4,
+    tablet: 3,
+    mobile: 2,
+);
+
+.container {
+    display: grid;
+    justify-content: center;
+    gap: 0.3vw;
+
+    @include resize(desktop, 5);
+
+    @each $display, $value in $screen-widths {
+        @media (max-width: map-get($screen-widths, $display)) {
+            @include resize($display, map-get($column-count, $display));
+        }
+    }
+}

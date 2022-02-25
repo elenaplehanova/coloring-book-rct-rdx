@@ -1,15 +1,37 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useMatch } from "react-router-dom";
+import Context from "../../context";
+import "./header.scss";
 
-import "./header.css";
+function CustomLink({ icon, to, exact }) {
+    let match = useMatch({
+        path: to,
+        exact,
+    });
+
+    return (
+        <Link to={to}>
+            <li>
+                <i className={`bi ${icon}${match ? "-fill" : ""}`} />
+            </li>
+        </Link>
+    );
+}
 
 const Header = () => {
+    const value = useContext(Context);
+
     return (
-        <div className="header d-flex">
-            <Link to="/">
-                <h3>Coloring book</h3>
-            </Link>
-        </div>
+        <nav>
+            <ul className="header">
+                <CustomLink icon="bi-house" to="/" exact={true} />
+                <CustomLink
+                    icon="bi-palette"
+                    to={`/coloring_page/${value.pictureId}`}
+                    exact={false}
+                />
+            </ul>
+        </nav>
     );
 };
 

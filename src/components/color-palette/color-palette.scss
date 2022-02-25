@@ -1,0 +1,41 @@
+@import "../../css/main.scss";
+
+.color-palette {
+    $width: 4vw;
+    display: grid;
+    gap: $swatch-gap * 1px;
+
+    $swatch-width: swatch-width(map-get($coloring-picture-widths, desktop), 6);
+    grid-template-columns: repeat(2, $swatch-width);
+    grid-auto-rows: $swatch-width;
+
+    @each $display, $value in $screen-widths {
+        @media (max-width: map-get($screen-widths, $display)) {
+            $width: map-get($coloring-picture-widths, $display);
+            $swatch-width: swatch-width($width, 6);
+
+            @if ($display== "mobile") {
+                grid-template-columns: repeat(6, $swatch-width);
+                grid-auto-rows: $swatch-width;
+            } @else {
+                grid-template-columns: repeat(2, $swatch-width);
+                grid-auto-rows: $swatch-width;
+            }
+        }
+    }
+}
+
+.color-swatch:hover {
+    filter: drop-shadow(0 0 0.5rem white);
+}
+
+.color-swatch {
+    border-radius: 0.7vw;
+    border: 0.15vw solid black;
+    cursor: pointer;
+}
+
+.color-swatch-active {
+    box-shadow: inset 0 0 15px black;
+    transition: all 0.2s;
+}

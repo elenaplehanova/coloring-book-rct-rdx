@@ -8,7 +8,7 @@ import App from "./components/app";
 import ErrorBoundry from "./components/error-boundry/error-boundry";
 import { ColoringBookServiceProvider } from "./components/coloring-book-service-context";
 import ColoringBookServiceMock from "./services/coloring-book-service-mock";
-import store from "./store";
+import store from "./redux/store";
 
 const coloringBookService = new ColoringBookServiceMock();
 

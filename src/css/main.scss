@@ -1,0 +1,31 @@
+$svg-width: 300;
+
+$screen-widths: (
+    desktop: 1600px,
+    tablet: 760px,
+    mobile: 320px,
+);
+
+$picture-widths: (
+    desktop: 250,
+    tablet: 150,
+    mobile: 100,
+);
+
+$coloring-picture-widths: (
+    desktop: 600,
+    tablet: 400,
+    mobile: 200,
+);
+
+$swatch-gap: 0.3;
+@function swatch-width($width, $count-columns) {
+    @return calc(($width - ($swatch-gap * ($count-columns - 1))) / $count-columns * 1px);
+}
+
+@mixin svg-scale($width, $hover-scale: 1) {
+    $scale: calc(#{$width} / #{$svg-width} * #{$hover-scale});
+    $xy: calc((#{$width} - #{$svg-width}) / #{$scale} / 2 * 1px);
+
+    transform: scale($scale) translate($xy, $xy);
+}

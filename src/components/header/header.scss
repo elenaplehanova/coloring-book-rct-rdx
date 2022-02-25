@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.header li {
+    list-style: none;
+    padding: 0.5rem 1rem;
+    //transform: scale(0.5);
+}
+
+.header i:hover {
+    filter: drop-shadow(0 0 0.5rem white);
+}
+
+.header i {
+    color: white;
+}

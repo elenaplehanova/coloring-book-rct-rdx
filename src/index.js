@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 import App from "./components/app";
 import ErrorBoundry from "./components/error-boundry/error-boundry";

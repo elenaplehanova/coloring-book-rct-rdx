@@ -6,26 +6,24 @@ import { compose } from "../../utils";
 import { colorAddedToPath, fetchPicture } from "../../actions";
 import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
-import "./coloring-picture.css";
+import "./coloring-picture.scss";
 
 const ColoringPicture = ({ picture, fillColors, onFill }) => {
     return (
-        <div className="coloring-picture">
-            <svg className="svg-picture" key={picture.id}>
-                {picture.paths.map((path, index) => {
-                    return (
-                        <path
-                            key={path.id}
-                            d={path.d}
-                            strokeWidth="0"
-                            stroke="black"
-                            onClick={() => onFill(index)}
-                            fill={fillColors[index]}
-                        />
-                    );
-                })}
-            </svg>
-        </div>
+        <svg className="svg-picture" key={picture.id}>
+            {picture.paths.map((path, index) => {
+                return (
+                    <path
+                        key={path.id}
+                        d={path.d}
+                        strokeWidth="0"
+                        stroke="black"
+                        onClick={() => onFill(index)}
+                        fill={fillColors[index]}
+                    />
+                );
+            })}
+        </svg>
     );
 };
 

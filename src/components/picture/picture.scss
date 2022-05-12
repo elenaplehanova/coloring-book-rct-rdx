@@ -1,58 +1,64 @@
-@import "../../css/main.scss";
+@import "../../scss/style.scss";
 
 $color: #fff;
 
-.hovereffect-container {
+.picture {
     position: relative;
     overflow: hidden;
-}
 
-.hovereffect-container .svg-picture {
-    transition: all 0.4s linear;
+    &__button-overlay {
+        transition: all 0.4s ease-in-out;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
-    @include svg-scale(map-get($picture-widths, desktop));
+    &:hover {
 
-    @each $display, $value in $screen-widths {
-        @media (max-width: map-get($screen-widths, $display)) {
-            @include svg-scale(map-get($picture-widths, $display));
+        .button,
+        .bibrush {
+            opacity: 1;
+        }
+
+        .svg-picture {
+            $hover-scale: 1.2;
+
+            @include svg-scale(map-get($picture-widths, desktop), #{$hover-scale});
+
+            @each $display,
+            $value in $screen-widths {
+                @media (max-width: map-get($screen-widths, $display)) {
+                    @include svg-scale(map-get($picture-widths, $display), #{$hover-scale});
+                }
+            }
+        }
+
+        box-shadow: 0 0 0.7vw $color;
+    }
+
+    .svg-picture {
+        transition: all 0.4s linear;
+
+        @include svg-scale(map-get($picture-widths, desktop));
+
+        @each $display,
+        $value in $screen-widths {
+            @media (max-width: map-get($screen-widths, $display)) {
+                @include svg-scale(map-get($picture-widths, $display));
+            }
         }
     }
 }
 
-.hovereffect-container .button-overlay {
+.button {
     border: none;
     width: 100%;
     height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    transition: all 0.4s ease-in-out;
 }
 
-.hovereffect-container .bi-brush {
+.bi-brush {
     color: $color;
     font-size: 2.5rem;
-}
-
-.hovereffect-container:hover .button-overlay,
-.hovereffect-container:hover .bibrush {
-    opacity: 1;
-}
-
-.hovereffect-container:hover .svg-picture {
-    $hover-scale: 1.2;
-
-    @include svg-scale(map-get($picture-widths, desktop), #{$hover-scale});
-
-    @each $display, $value in $screen-widths {
-        @media (max-width: map-get($screen-widths, $display)) {
-            @include svg-scale(map-get($picture-widths, $display), #{$hover-scale});
-        }
-    }
-}
-
-.hovereffect-container:hover {
-    box-shadow: 0 0 0.7vw $color;
 }

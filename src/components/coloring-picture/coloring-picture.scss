@@ -1,4 +1,4 @@
-@import "../../css/main.scss";
+@import "../../scss/style.scss";
 
 .svg-picture {
     @include svg-scale(map-get($coloring-picture-widths, desktop));

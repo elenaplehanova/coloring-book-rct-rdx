@@ -1,4 +1,4 @@
-@import "../../css/main.scss";
+@import "../../scss/style.scss";
 
 .color-palette {
     $width: 4vw;
@@ -23,19 +23,18 @@
             }
         }
     }
-}
 
-.color-swatch:hover {
-    filter: drop-shadow(0 0 0.5rem white);
-}
+    &__color-swatch {
+        border-radius: 0.7vw;
+        border: 0.15vw solid black;
+        cursor: pointer;
 
-.color-swatch {
-    border-radius: 0.7vw;
-    border: 0.15vw solid black;
-    cursor: pointer;
-}
-
-.color-swatch-active {
-    box-shadow: inset 0 0 15px black;
-    transition: all 0.2s;
+        &_active {
+            box-shadow: inset 0 0 15px black;
+            transition: all 0.2s;
+        }
+    }
+    &__color-swatch:hover {
+        filter: drop-shadow(0 0 0.5rem white);
+    }
 }

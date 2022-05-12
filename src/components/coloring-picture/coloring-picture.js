@@ -8,28 +8,11 @@ import { colorAddedToPath } from "../../redux/actions/color-path";
 
 import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
+import SvgPicture from "../svg-picture";
+
 import "./coloring-picture.scss";
 
-const ColoringPicture = ({ picture, fillColors, onFill }) => {
-    return (
-        <svg className="svg-picture" key={picture.id}>
-            {picture.paths.map((path, index) => {
-                return (
-                    <path
-                        key={path.id}
-                        d={path.d}
-                        strokeWidth="0"
-                        stroke="black"
-                        onClick={() => onFill(index)}
-                        fill={fillColors[index]}
-                    />
-                );
-            })}
-        </svg>
-    );
-};
-
-class ColoringPictureContainer extends Component {
+class ColoringPicture extends Component {
     componentWillMount() {
         const { pictureId, fetchPicture } = this.props;
         fetchPicture(pictureId);
@@ -37,6 +20,7 @@ class ColoringPictureContainer extends Component {
 
     render() {
         const { picture, loading, error, fillColors, onFill } = this.props;
+
         if (loading) {
             return <Spinner />;
         }
@@ -45,7 +29,7 @@ class ColoringPictureContainer extends Component {
         }
 
         if (picture) {
-            return <ColoringPicture picture={picture} fillColors={fillColors} onFill={onFill} />;
+            return <SvgPicture picture={picture} fillColors={fillColors} onFill={onFill} />;
         }
     }
 }
@@ -75,4 +59,4 @@ const mapDispatchToProps = (dispatch, { coloringBookService }) => {
 export default compose(
     withColoringBookService(),
     connect(mapStateToProps, mapDispatchToProps)
-)(ColoringPictureContainer);
+)(ColoringPicture);
